@@ -1,4 +1,6 @@
 pipeline {	
+	agent any
+	stages {
 		 stage('Execute Powershell ') {
 			steps {
 				powershell(returnStdout: false, script: '''
@@ -20,3 +22,4 @@ pipeline {
 		}
 	}
 
+}

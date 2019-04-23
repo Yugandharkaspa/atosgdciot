@@ -1,17 +1,6 @@
 
 #!/usr/bin/env groovy
-pipeline {
-	stages {
-		stage('Fetch ARM Template Repo') {
-			parallel {
-				stage('Runbooks') {
-					steps {
-						checkout([$class: 'MercurialSCM', clean: true, credentialsId: 'b3bb4c4a-3fe9-4a19-95bf-b58eb8d84c41', source: 'https://akakade123@bitbucket.org/akakade123/iotgdc.git'])
-                    }
-				}
-			}
-		}
-		
+pipeline {	
 		 stage('Execute Powershell ') {
 			steps {
 				powershell(returnStdout: false, script: '''
